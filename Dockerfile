@@ -22,6 +22,9 @@ RUN apt-get update -qq && apt-get install -y \
 RUN mkdir /deployr
 WORKDIR /deployr
 
+# Adds foreman
+RUN gem install foreman
+
 # Add build manifests and build
 ADD Gemfile /deployr/Gemfile
 ADD Gemfile.lock /deployr/Gemfile.lock
