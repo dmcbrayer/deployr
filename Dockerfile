@@ -27,5 +27,9 @@ ADD Gemfile /deployr/Gemfile
 ADD Gemfile.lock /deployr/Gemfile.lock
 RUN bundle install
 
+ADD package.json /deployr/package.json
+ADD yarn.lock /deployr/yarn.lock
+RUN yarn install
+
 # Add app code
 ADD . /deployr
