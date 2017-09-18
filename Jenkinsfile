@@ -5,6 +5,6 @@ node {
 
   stage('Build') {
     echo "Building..."
-    sh "sudo docker build -t deployr:${BUILD_ID} ."
+    def customImage = docker.build("deployr:${env.BUILD_ID}")
   }
 }
