@@ -1,7 +1,10 @@
 node {
-  checkout scm
+  stage('Git Checkout') {
+    checkout scm
+  }
+
   stage('Build') {
     echo "Building..."
-    def customImage = docker.build("deployr:${env.BUILD_ID}")
+    sh "sudo docker build -t deployr:${BUILD_ID} ."
   }
 }
