@@ -2,6 +2,14 @@ version: '3'
 services:
   db:
     image: postgres
+  nginx:
+    image: nginx:1.12.1
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - web
+    ports:
+      - "80:80"
   web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
