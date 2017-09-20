@@ -1,9 +1,6 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<%= content_tag :div,
-      id: 'react-test',
-      data: {
-        name: "Steve",
-      }.to_json do %>
-<% end %>
+<div class="container">
+  <%= content_tag :div,
+        id: 'react-test',
+        data: { name: "Steve" }.to_json do %>
+  <% end %>
+</div>
