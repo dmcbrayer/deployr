@@ -6,10 +6,13 @@ node {
   stage('Build') {
     echo "Building..."
     customImage = docker.build("deployr")
+    sh '/usr/local/bin/docker-compose run web rails db:create'
+    sh '/usr/local/bin/docker-compose run web rails assets:precompile'
   }
 
   stage('Test') {
     echo "Testing..."
+    sh '/usr/local/bin/docker-compose run web rails test'
   }
 
   stage('Push') {
